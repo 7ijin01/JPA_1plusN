@@ -1,0 +1,40 @@
+package com.one_many.controller;
+
+
+import com.one_many.country.service.CountryService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class CreateController {
+
+    private final CountryService countryService;
+
+    public CreateController(CountryService countryService) {
+        this.countryService = countryService;
+    }
+
+    @GetMapping("/country")
+    public String countryPage() {
+
+        return "country";
+    }
+
+    @GetMapping("/create/country")
+    public String countryProcess(@RequestParam String country) {
+
+        countryService.createCountry(country);
+
+        return "redirect:/country";
+    }
+
+    @GetMapping("/create/city")
+    public String cityProcess(@RequestParam String country, @RequestParam String city) {
+
+        countryService.createCity(country, city);
+
+        return "redirect:/country";
+    }
+
+}
