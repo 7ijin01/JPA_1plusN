@@ -14,6 +14,6 @@ public interface CountryRepository extends JpaRepository<CountryEntity, Long> {
     Optional<CountryEntity> findByCountry(String country);
 
     @Query("SELECT co from CountryEntity co " +
-            "JOIN FETCH co.cityEntities ci")
+            "LEFT JOIN FETCH co.cityEntities ci")
     List<CountryEntity> findAllFetch();
 }
