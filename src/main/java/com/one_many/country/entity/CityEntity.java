@@ -15,6 +15,6 @@ public class CityEntity {
 
     private String city;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private CountryEntity countryEntity;
 }
