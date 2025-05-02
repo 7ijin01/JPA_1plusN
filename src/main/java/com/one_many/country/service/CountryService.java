@@ -42,6 +42,10 @@ public class CountryService {
         countryRepository.save(countryEntity);
     }
 
+    public List<CountryEntity> readCountryFetch() {
+        return countryRepository.findAllFetch();
+    }
+
     public List<CountryEntity> readCountry() {
         return countryRepository.findAll();
     }

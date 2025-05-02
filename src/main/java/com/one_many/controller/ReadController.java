@@ -27,7 +27,7 @@ public class ReadController {
     @GetMapping("/read/one/child")
     public String readOneChild(Model model) {
 
-        model.addAttribute("COUNTRYLIST", countryService.readCountry());
+        model.addAttribute("COUNTRYLIST", countryService.readCountryFetch());
 
         return "readOneChild";
     }
